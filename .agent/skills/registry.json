@@ -1,0 +1,114 @@
+﻿{
+    "lastUpdated":  "2026-03-01",
+    "totalSkills":  11,
+    "skills":  [
+                   {
+                       "name":  "design-md",
+                       "path":  ".agent/skills/design-md/SKILL.md",
+                       "description":  "Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files",
+                       "triggers":  [
+
+                                    ]
+                   },
+                   {
+                       "name":  "design-reviewer",
+                       "path":  ".agent/skills/design-reviewer/SKILL.md",
+                       "description":  "Review, iterate, and improve generated Stitch designs. Use when the user wants to change, refine, or create variants of an existing design. Triggers: \"pakeisk dizainą\", \"iterate design\", \"peržiūrėk\", \"pataisyk\", \"sukurk variantus\", \"make it darker/lighter/better\".",
+                       "triggers":  [
+                                        "pakeisk dizainą\" / \"change design",
+                                        "pataisyk\" / \"fix / improve",
+                                        "peržiūrėk\" / \"review",
+                                        "sukurk variantus\" / \"create variants",
+                                        "iterate\", \"refine\", \"make it better",
+                                        "Any feedback about colors, layout, fonts, spacing"
+                                    ]
+                   },
+                   {
+                       "name":  "enhance-prompt",
+                       "path":  ".agent/skills/enhance-prompt/SKILL.md",
+                       "description":  "Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords, injects design system context, and structures output for better generation results.",
+                       "triggers":  [
+
+                                    ]
+                   },
+                   {
+                       "name":  "git-basics",
+                       "path":  ".agent/skills/git-basics/SKILL.md",
+                       "description":  "Essential Git operations for version control and VibeCoding safety. Enforces Auto-Checkpointing.",
+                       "triggers":  [
+
+                                    ]
+                   },
+                   {
+                       "name":  "image-optimizer",
+                       "path":  ".agent/skills/image-optimizer/SKILL.md",
+                       "description":  "Image management for vakruska.lt. Use when adding new photos, converting formats, creating og-cover.jpg, or auditing img/ directory. Enforces WebP+JPG dual format, correct naming, alt text standards, and file size limits.",
+                       "triggers":  [
+                                        "pridėti nuotrauką",
+                                        "keisti paveikslėlį",
+                                        "sukurti og-cover",
+                                        "optimizuoti nuotraukas",
+                                        "konvertuoti į webp",
+                                        "patikrinti img"
+                                    ]
+                   },
+                   {
+                       "name":  "project-scaffolder",
+                       "path":  ".agent/skills/project-scaffolder/SKILL.md",
+                       "description":  "Create a new StitchLab design project folder with all required files. Use when the user starts a new design project. Triggers: \"naujas projektas\", \"new design project\", \"sukurk projektą\", \"pradėk dizaino projektą\".",
+                       "triggers":  [
+                                        "naujas projektas\" / \"new project",
+                                        "sukurk projektą\" / \"create project",
+                                        "pradėk dizaino projektą\" / \"start design project",
+                                        "inicializuok projektą"
+                                    ]
+                   },
+                   {
+                       "name":  "react:components",
+                       "path":  ".agent/skills/react:components/SKILL.md",
+                       "description":  "Converts Stitch designs into modular Vite and React components using system-level networking and AST-based validation.",
+                       "triggers":  [
+
+                                    ]
+                   },
+                   {
+                       "name":  "smart-planning",
+                       "path":  ".agent/skills/smart-planning/SKILL.md",
+                       "description":  "Use for ANY multi-step task, research, or complex implementation. This is the master cognitive framework replacing all older planning skills. It manages Analysis, Technical Planning, and Execution in one unified workflow.",
+                       "triggers":  [
+
+                                    ]
+                   },
+                   {
+                       "name":  "stitch-designer",
+                       "path":  ".agent/skills/stitch-designer/SKILL.md",
+                       "description":  "Generate web and web app UI screens using Google Stitch MCP. Use when the user asks to create a screen, design a page, generate UI, or build a layout. Triggers: \"generuok ekraną\", \"sukurk dizainą\", \"design a screen\", \"create UI\", \"draw a page\".",
+                       "triggers":  [
+                                        "generuok ekraną\" / \"generate screen",
+                                        "sukurk dizainą\" / \"create design",
+                                        "dizainuok puslapį\" / \"design a page",
+                                        "padaryk UI\" / \"make UI",
+                                        "stitch ekranas\" / \"stitch screen"
+                                    ]
+                   },
+                   {
+                       "name":  "stitch-exporter",
+                       "path":  ".agent/skills/stitch-exporter/SKILL.md",
+                       "description":  "Save and export Stitch-generated screens as local HTML files. Use when the user wants to download, export, or save a generated design locally. Triggers: \"eksportuok\", \"išsaugok dizainą\", \"export design\", \"save screen\", \"atsisiųsk dizainą\".",
+                       "triggers":  [
+                                        "eksportuok\" / \"export",
+                                        "išsaugok dizainą\" / \"save design",
+                                        "atsisiųsk ekraną\" / \"download screen",
+                                        "išsaugok lokaliai\" / \"save locally"
+                                    ]
+                   },
+                   {
+                       "name":  "stitch-loop",
+                       "path":  ".agent/skills/stitch-loop/SKILL.md",
+                       "description":  "Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern",
+                       "triggers":  [
+
+                                    ]
+                   }
+               ]
+}
