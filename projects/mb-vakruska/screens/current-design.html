@@ -1301,12 +1301,23 @@
                         required autocomplete="name" placeholder="pvz. Jonas Jonaitis"></div>
                 <div class="form-group">
                     <label for="purpose">Kreipimosi tikslas</label>
-                    <select id="purpose" name="purpose">
-                        <option value="" disabled selected>— Pasirinkite —</option>
-                        <option value="uzklausa">Noriu gauti paslaugos pasiūlymą</option>
-                        <option value="atsiliepimas_teigiamas">Noriu pasidalinti padėka</option>
-                        <option value="atsiliepimas_neigiamas">Turiu kritikos / pastebėjimų</option>
-                    </select>
+                    <div class="custom-select-wrapper" id="customPurposeWrapper">
+                        <select id="purpose" name="purpose" style="display: none;" required>
+                            <option value="" disabled selected>— Pasirinkite —</option>
+                            <option value="uzklausa">Noriu gauti paslaugos pasiūlymą</option>
+                            <option value="atsiliepimas_teigiamas">Noriu pasidalinti padėka</option>
+                            <option value="atsiliepimas_neigiamas">Turiu kritikos / pastebėjimų</option>
+                        </select>
+                        <div class="custom-select-trigger"><span>— Pasirinkite —</span></div>
+                        <div class="custom-options">
+                            <div class="custom-option selected" data-value="">— Pasirinkite —</div>
+                            <div class="custom-option" data-value="uzklausa">Noriu gauti paslaugos pasiūlymą</div>
+                            <div class="custom-option" data-value="atsiliepimas_teigiamas">Noriu pasidalinti padėka
+                            </div>
+                            <div class="custom-option" data-value="atsiliepimas_neigiamas">Turiu kritikos / pastebėjimų
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <p
                     style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 20px; font-weight: 500;">
@@ -1469,6 +1480,38 @@
                     header.classList.remove('scrolled');
                 }
             }, { passive: true });
+
+            // Custom Select Dropdown Logic
+            const selectWrapper = document.getElementById('customPurposeWrapper');
+            const selectTrigger = selectWrapper.querySelector('.custom-select-trigger');
+            const nativeSelect = document.getElementById('purpose');
+            const customOptions = selectWrapper.querySelectorAll('.custom-option');
+
+            selectTrigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                selectWrapper.classList.toggle('open');
+            });
+
+            customOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+
+                    nativeSelect.value = value;
+                    nativeSelect.dispatchEvent(new Event('change'));
+
+                    selectTrigger.querySelector('span').textContent = text;
+
+                    customOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    selectWrapper.classList.remove('open');
+                });
+            });
+
+            document.addEventListener('click', function () {
+                selectWrapper.classList.remove('open');
+            });
 
             // Form Validation Logic
             const contactForm = document.getElementById('contactForm');
