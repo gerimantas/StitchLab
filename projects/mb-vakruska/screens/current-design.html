@@ -516,7 +516,8 @@
             background: rgba(255, 69, 58, 0.03) !important;
         }
 
-        input.invalid+.error-msg {
+        input.invalid + .error-msg,
+        .error-msg.visible {
             display: block;
         }
 
@@ -1540,8 +1541,41 @@
 
             function clearErrors() {
                 document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+                document.querySelectorAll('.error-msg').forEach(el => el.style.display = 'none');
                 contactForm.classList.remove('shake');
             }
+
+            // Blur validation — real-time feedback when leaving field
+            function setFieldError(input, hasError) {
+                const msg = input.closest('.form-group').querySelector('.error-msg');
+                if (hasError) {
+                    input.classList.add('invalid');
+                    if (msg) msg.style.display = 'block';
+                } else {
+                    input.classList.remove('invalid');
+                    if (msg) msg.style.display = 'none';
+                }
+            }
+
+            emailInput.addEventListener('blur', function () {
+                const v = emailInput.value.trim();
+                if (v) setFieldError(emailInput, !validateEmail(v));
+            });
+            emailInput.addEventListener('input', function () {
+                if (emailInput.classList.contains('invalid') && validateEmail(emailInput.value.trim())) {
+                    setFieldError(emailInput, false);
+                }
+            });
+
+            phoneInput.addEventListener('blur', function () {
+                const v = phoneInput.value.trim();
+                if (v) setFieldError(phoneInput, !validatePhone(v));
+            });
+            phoneInput.addEventListener('input', function () {
+                if (phoneInput.classList.contains('invalid') && validatePhone(phoneInput.value.trim())) {
+                    setFieldError(phoneInput, false);
+                }
+            });
 
             contactForm.addEventListener('submit', function (e) {
                 clearErrors();
@@ -1554,18 +1588,18 @@
                 // Logical Guard: At least one contact method
                 if (!emailValue && !phoneValue) {
                     hasError = true;
-                    emailInput.classList.add('invalid');
-                    phoneInput.classList.add('invalid');
+                    setFieldError(emailInput, true);
+                    setFieldError(phoneInput, true);
                     alert('Prašome užpildyti bent vieną kontaktinį lauką (el. paštą arba telefoną).');
                 } else {
                     // Format checks if provided
                     if (emailValue && !validateEmail(emailValue)) {
                         hasError = true;
-                        emailInput.classList.add('invalid');
+                        setFieldError(emailInput, true);
                     }
                     if (phoneValue && !validatePhone(phoneValue)) {
                         hasError = true;
-                        phoneInput.classList.add('invalid');
+                        setFieldError(phoneInput, true);
                     }
                 }
 
