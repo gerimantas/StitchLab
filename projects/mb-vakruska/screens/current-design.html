@@ -145,20 +145,22 @@
         /* NAVIGACIJA SU ANIMUOTA LINIJA IR MOBILIU VALDYMU */
         header {
             padding: 1.4rem 0;
-            background: rgba(8, 10, 11, 0.0);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(8, 12, 14, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 10001;
-            transition: background 0.4s ease, border-color 0.4s ease;
-            border-bottom: 1px solid transparent;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: none;
         }
 
         header.scrolled {
-            background: rgba(8, 10, 11, 0.7);
-            border-bottom: 1px solid var(--border-color);
+            background: rgba(8, 12, 14, 0.45);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -459,21 +461,23 @@
 
         .btn-main {
             text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 14px;
+            padding: 0.85rem 2.4rem;
+            border-radius: 10px;
             font-weight: 700;
             text-align: center;
             transition: all 0.3s ease-out;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: 0.95rem;
             color: var(--accent-green);
             background: transparent;
-            border: 2px solid var(--accent-green);
+            border: 1px solid var(--accent-green);
             cursor: pointer;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.06em;
             line-height: 1.3;
+            white-space: nowrap;
+            width: fit-content;
         }
 
         .btn-main:hover,
@@ -817,7 +821,9 @@
         .custom-select-wrapper {
             position: relative;
             user-select: none;
-            width: 100%;
+            display: inline-block;
+            width: fit-content;
+            min-width: max-content;
         }
 
         .custom-select-trigger {
@@ -825,7 +831,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.1rem;
+            gap: 2rem;
+            padding: 1.1rem 1.4rem;
             font-size: 1rem;
             color: #fff;
             background: #1a1d21;
@@ -833,6 +840,8 @@
             border-radius: 14px;
             cursor: pointer;
             transition: all 0.3s;
+            white-space: nowrap;
+            width: 100%;
         }
 
         .custom-select-trigger:hover,
@@ -858,42 +867,45 @@
         }
 
         .custom-options {
-            background: #1a1d21;
-            border: 1px solid var(--accent-green);
-            border-radius: 14px;
-            overflow: hidden;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: visible;
             max-height: 0;
             opacity: 0;
             visibility: hidden;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: 0;
+            min-width: max-content;
         }
 
         .custom-select-wrapper.open .custom-options {
             max-height: 400px;
             opacity: 1;
             visibility: visible;
-            margin-top: 15px;
+            margin-top: 10px;
             margin-bottom: 10px;
         }
 
         .custom-option {
-            padding: 1rem 1.1rem;
+            padding: 1rem 1.4rem;
             cursor: pointer;
             color: var(--text-muted);
             transition: all 0.2s;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .custom-option:last-child {
-            border-bottom: none;
+            background: #1a1d21;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            white-space: nowrap;
         }
 
         .custom-option:hover,
         .custom-option.selected {
-            background: rgba(57, 255, 20, 0.1);
+            background: rgba(57, 255, 20, 0.08);
+            border-color: var(--accent-green);
             color: #fff;
         }
 
@@ -1075,8 +1087,8 @@
             <p>Kuriame nepamirštamas akimirkas gamtoje ir padedame tvirtus pamatus Jūsų verslo sėkmei. Atraskite unikalų
                 poilsio ir profesionalių paslaugų derinį.</p>
             <div class="hero-btns">
-                <a href="#poilsis" class="btn-main btn-green" style="min-width: 220px;">Mėgautis poilsiu</a>
-                <a href="#verslas" class="btn-main btn-green" style="min-width: 220px;">Auginti verslą</a>
+                <a href="#poilsis" class="btn-main btn-green">Mėgautis poilsiu</a>
+                <a href="#verslas" class="btn-main btn-green">Auginti verslą</a>
             </div>
         </section>
 
@@ -1278,7 +1290,7 @@
                 Atsiliepimai, padėkos ir konstruktyvi kritika – viskas padeda mums augti.
                 Pasidalykite savo patirtimi per kontaktų formą žemiau.
             </p>
-            <a href="#contact" class="btn-main btn-green" style="display: inline-block; min-width: 220px;">Palikti
+            <a href="#contact" class="btn-main btn-green">Palikti
                 atsiliepimą</a>
         </section>
 
@@ -1363,7 +1375,7 @@
                 <!-- Cloudflare Turnstile CAPTCHA widget -->
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAACghadkBpuyjoQKl" data-theme="dark"
                     style="display:flex; justify-content:center; margin-bottom:1.5rem;"></div>
-                <button type="submit" class="btn-main btn-green" style="width:100%">SIŲSTI ŽINUTĘ</button>
+                <button type="submit" class="btn-main btn-green">SIŲSTI ŽINUTĘ</button>
             </form>
 
 
