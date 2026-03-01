@@ -813,6 +813,91 @@
             color: #ffffff;
         }
 
+        /* Custom Select */
+        .custom-select-wrapper {
+            position: relative;
+            user-select: none;
+            width: 100%;
+        }
+
+        .custom-select-trigger {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem;
+            font-size: 1rem;
+            color: #fff;
+            background: #1a1d21;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .custom-select-trigger:hover,
+        .custom-select-wrapper.open .custom-select-trigger {
+            border-color: var(--accent-green);
+        }
+
+        .custom-select-trigger::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid var(--accent-green);
+            border-bottom: 2px solid var(--accent-green);
+            transform: rotate(45deg);
+            transition: all 0.3s;
+            margin-right: 4px;
+            margin-top: -4px;
+        }
+
+        .custom-select-wrapper.open .custom-select-trigger::after {
+            transform: rotate(-135deg);
+            margin-top: 4px;
+        }
+
+        .custom-options {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: #1a1d21;
+            border: 1px solid var(--accent-green);
+            border-radius: 14px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-select-wrapper.open .custom-options {
+            max-height: 300px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .custom-option {
+            padding: 1rem 1.1rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-option:last-child {
+            border-bottom: none;
+        }
+
+        .custom-option:hover,
+        .custom-option.selected {
+            background: rgba(57, 255, 20, 0.1);
+            color: #fff;
+        }
+
         #backToTop,
         #scrollToBottom {
             position: fixed;
