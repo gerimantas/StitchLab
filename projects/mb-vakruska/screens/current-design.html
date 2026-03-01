@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB Vakruška | Poilsis Kauno rajone, Verslo Konsultacijos ir Ūkis Eggztasy™</title>
+    <meta name="description"
+        content="Jauki sodybos nuoma Kauno rajone iki 15 svečių, profesionali verslo pagalba ir Quramo mobilūs vištidžiai Jūsų ūkiui. Užsakykite jau šiandien!">
+    <meta name="keywords"
+        content="sodybos nuoma Kaunas, verslo konsultacijos, įmonių steigimas, UŽT parama, mobilūs vištidžiai, ekologiški kiaušiniai, Quramo, Jiesios sodyba">
+    <link rel="canonical" href="https://vakruska.lt/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MB Vakruška | Poilsis Kauno rajone, Verslo Konsultacijos ir Ūkis Eggztasy™">
+    <meta property="og:description"
+        content="Jauki sodybos nuoma Kauno rajone, profesionali verslo pagalba ir Quramo mobilūs vištidžiai. Užsakykite jau šiandien!">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="lt_LT">
+    <meta property="og:url" content="https://vakruska.lt">
+    <meta property="og:site_name" content="MB Vakruška">
+    <meta property="og:image" content="https://vakruska.lt/img/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MB Vakruška | Poilsis Kauno rajone, Verslo Konsultacijos ir Ūkis Eggztasy™">
+    <meta name="twitter:description"
+        content="Jauki sodybos nuoma Kauno rajone, profesionali verslo pagalba ir Quramo mobilūs vištidžiai.">
+    <meta name="twitter:image" content="https://vakruska.lt/img/og-cover.jpg">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "MB Vakruška",
+        "description": "Sodybos nuoma, verslo konsultacijos ir Quramo mobilūs vištidžiai Kauno rajone",
+        "url": "https://vakruska.lt",
+        "image": "https://vakruska.lt/img/og-cover.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tilto g. 4",
+            "addressLocality": "Stuomenai",
+            "addressRegion": "Prienų r.",
+            "postalCode": "59267",
+            "addressCountry": "LT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 54.795428,
+            "longitude": 23.8012703
+        },
+        "sameAs": []
+    }
+    </script>
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://challenges.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #080a0b;
+            --card-bg: #121519;
+            --border-color: rgba(57, 255, 20, 0.15);
+            --accent-green: #39FF14;
+            --accent-blue: #00a3ff;
+            --text-main: #ffffff;
+            --text-muted: #8a939b;
+        }
+
+        /* TIPOGRAFIJA PAGAL REVERT.FINANCE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            letter-spacing: -0.015em;
+            overflow-x: hidden;
+        }
+
+        /* SCREEN PERIMETER GLOW — uniform green edge */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            box-shadow:
+                inset 0 0 0 1px rgba(57, 255, 20, 0.35),
+                inset 0 0 60px rgba(57, 255, 20, 0.30);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* SOCIAL ACTIVATION BG — Original Photo Optimized */
+        .social-activation-bg {
+            position: fixed;
+            inset: 0;
+            background-image: url('../img/sodyba-poilsis-pieva.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+            /* Behind starfield and content */
+            transition: opacity 0.8s ease, filter 0.8s ease;
+            filter: blur(8px) brightness(0.6);
+        }
+
+        @supports (background-image: url('../img/sodyba-poilsis-pieva.webp')) {
+            .social-activation-bg {
+                background-image: url('../img/sodyba-poilsis-pieva.webp');
+            }
+        }
+
+        .social-activation-bg.active {
+            opacity: 0.35;
+            filter: blur(2px) brightness(0.8);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* NAVIGACIJA SU ANIMUOTA LINIJA IR MOBILIU VALDYMU */
+        header {
+            padding: 1.4rem 0;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(90deg, transparent 0%, rgba(57, 255, 20, 0.6) 30%, rgba(57, 255, 20, 0.9) 50%, rgba(57, 255, 20, 0.6) 70%, transparent 100%) 1;
+            -webkit-backdrop-filter: blur(20px);
+            /* FIX #4: Firefox/older browsers */
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10001;
+            background: rgba(8, 10, 11, 0.0);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            letter-spacing: 0.5px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: var(--accent-green);
+            white-space: nowrap;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-green);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(16, 20, 24, 0.96);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+            z-index: 1002;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+            padding: 0.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .dropdown-content a::after {
+            display: none;
+            /* No underline sliding effect for submenu */
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(57, 255, 20, 0.1);
+            color: var(--accent-green);
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--accent-green);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10002;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+
+        @media (max-width: 850px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                /* FIX #5: fallback */
+                height: 100dvh;
+                /* FIX #5: iOS Safari dynamic viewport fix */
+                background: var(--bg-color);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 5rem;
+                align-items: flex-end;
+                padding-right: 2.5rem;
+                transition: 0.4s;
+                gap: 0.4rem;
+            }
+
+            /* MOBILE DROPDOWN SETTINGS */
+            .dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                width: 100%;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                border: none;
+                min-width: 100%;
+                padding-left: 1rem;
+                padding-top: 0;
+                margin-top: 0.5rem;
+            }
+
+            .dropdown:hover .dropdown-content,
+            .dropdown:focus-within .dropdown-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .dropdown-content a {
+                padding: 6px 0;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+        }
+
+        /* HERO IR CTA MYGTUKAI */
+        .hero {
+            text-align: center;
+            padding: 10rem 2rem 3.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            color: #ffffff;
+            /* Subtle gradient text — nearly white, gentle depth effect */
+            background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 50%, #cccccc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Fallback: if background-clip:text not supported, show solid white */
+        @supports not (background-clip: text) {
+            .hero h1 {
+                background: none;
+                -webkit-text-fill-color: #ffffff;
+                color: #ffffff;
+            }
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* SCROLL OFFSET DĖL FIXED HEADER */
+        [id] {
+            scroll-margin-top: 6rem;
+        }
+
+        /* KORTELĖS IR DETALIZAVIMAS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card .btn-main {
+            margin-top: auto;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            align-self: flex-start;
+        }
+
+        .badge-green {
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--accent-green);
+        }
+
+        .badge-blue {
+            background: rgba(0, 163, 255, 0.1);
+            color: var(--accent-blue);
+        }
+
+        .btn-more {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 0.7rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .details-content.active {
+            max-height: 900px;
+            margin-bottom: 2rem;
+        }
+
+        .details-content li {
+            margin-bottom: 1rem;
+            list-style-type: '— ';
+            padding-left: 0.5rem;
+        }
+
+        .btn-main {
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 14px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease-out;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--accent-green);
+            background: transparent;
+            border: 2px solid var(--accent-green);
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 0.03em;
+            line-height: 1.3;
+        }
+
+        .btn-main:hover,
+        .btn-main:focus {
+            background: rgba(57, 255, 20, 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(57, 255, 20, 0.25);
+            color: #fff;
+            border-color: #39FF14;
+        }
+
+
+
+        /* GALERIJA SU SEO APRAŠYMAIS – MASONRY / GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem auto 3.5rem;
+            max-width: 1000px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1;
+            box-sizing: border-box;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            cursor: pointer;
+            background: #111;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* LIGHTBOX OVERLAY */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            object-fit: contain;
+        }
+
+        .lightbox iframe {
+            width: 90vw;
+            height: 50.625vw;
+            /* 16:9 aspect ratio */
+            max-height: 90vh;
+            max-width: 160vh;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            background: #000;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 40px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10000;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-green);
+        }
+
+
+        /* ATSILIEPIMAI – KARUSELĖ */
+        .carousel-viewport {
+            overflow: hidden;
+            margin: 2rem 0 1rem;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(.77, 0, .18, 1);
+        }
+
+        .review-card {
+            min-width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-green);
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.3s;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-green);
+        }
+
+        /* KONTAKTAI */
+        .contact-wrap {
+            background: transparent;
+            border: none;
+            padding: 2.5rem;
+            max-width: 750px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: var(--accent-green);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background: #1a1d21;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--accent-green);
+        }
+
+        select option {
+            background-color: #1a1d21;
+            color: #ffffff;
+        }
+
+        #backToTop,
+        #scrollToBottom {
+            position: fixed;
+            right: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: none;
+            z-index: 1001;
+            padding: 1.5rem 1.5rem 1.5rem 2rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        #backToTop::before,
+        #scrollToBottom::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            border-top: 3px solid var(--accent-green);
+            border-left: 3px solid var(--accent-green);
+        }
+
+        #backToTop::before {
+            transform: rotate(45deg);
+            margin-top: 6px;
+        }
+
+        #scrollToBottom::before {
+            transform: rotate(-135deg);
+            margin-bottom: 6px;
+        }
+
+        #backToTop:hover,
+        #scrollToBottom:hover {
+            opacity: 1;
+        }
+
+        #backToTop {
+            bottom: 70px;
+        }
+
+        #scrollToBottom {
+            bottom: 20px;
+        }
+
+        footer {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-share a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-share a:hover {
+            border-color: var(--accent-green);
+            background: rgba(57, 255, 20, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .social-share a svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--text-muted);
+            transition: fill 0.3s;
+        }
+
+        .social-share a:hover svg {
+            fill: var(--accent-green);
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                padding: 6rem 0 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+                /* smaller floor for narrow screens */
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .contact-row {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+
+    <!-- Cloudflare Turnstile CAPTCHA -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav aria-label="Pagrindinė navigacija">
+                <a href="#" class="logo">MB VAKRUŠKA</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Atidaryti meniu" aria-expanded="false"
+                    aria-controls="navLinks">☰</button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#poilsis">Poilsis</a>
+                    <a href="#verslas">Verslas</a>
+                    <a href="#ukis">Ūkis Eggztasy™</a>
+                    <div class="dropdown">
+                        <a href="#gallery" aria-haspopup="true" aria-expanded="false">Galerija ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#ukisGrid">Ūkis Eggztasy</a>
+                            <a href="#verslasGrid">Verslas</a>
+                            <a href="#poilsisGrid">Poilsis</a>
+                        </div>
+                    </div>
+                    <a href="#reviews">Atsiliepimai</a>
+                    <a href="#contact">Susisiekime</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <button id="backToTop" aria-label="Grįžti į viršų"></button>
+    <button id="scrollToBottom" aria-label="Slinkti žemyn"></button>
+
+    <noscript>
+        <style>
+            .menu-toggle {
+                display: none !important
+            }
+
+            .nav-links {
+                position: static !important;
+                right: auto !important;
+                height: auto !important;
+                background: transparent !important;
+                flex-wrap: wrap
+            }
+
+            .details-content {
+                max-height: none !important;
+                margin-bottom: 2rem
+            }
+        </style>
+    </noscript>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Nuo idėjos iki sėkmės,<br>nuo poilsio iki nuotykių.</h1>
+            <p>Kuriame nepamirštamas akimirkas gamtoje ir padedame tvirtus pamatus Jūsų verslo sėkmei. Atraskite unikalų
+                poilsio ir profesionalių paslaugų derinį.</p>
+            <div class="hero-btns">
+                <a href="#poilsis" class="btn-main btn-green" style="min-width: 220px;">Mėgautis poilsiu</a>
+                <a href="#verslas" class="btn-main btn-green" style="min-width: 220px;">Auginti verslą</a>
+            </div>
+        </section>
+
+        <div class="grid" id="poilsis">
+            <div class="card">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Poilsis</h2>
+                <p>Atsipalaiduokite jaukoje nuomoje gamtos apsuptyje prie Kauno.</p>
+                <button class="btn-more" data-toggle="detales-poilsis">Plačiau ▼</button>
+                <div id="detales-poilsis" class="details-content">
+                    <ul>
+                        <li><strong>Nakvynė:</strong> Iki 15 asmenų jaukiuose kambariuose.</li>
+                        <li><strong>Šventės:</strong> Vieta gimtadieniams, krikštynoms, vakarėliams.</li>
+                        <li><strong>SPA:</strong> Pirties nuoma, turkiška pirtis, karštas kubilas.</li>
+                        <li><strong>Nuotykiai:</strong> Keturračiai, visureigiai, 6-viečio laivo nuoma.</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-main btn-green">Rezervuoti poilsį</a>
+            </div>
+
+            <div class="card" id="verslas">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Verslas</h2>
+                <p>Padedame nuo idėjos iki sėkmingos įmonės įsteigimo.</p>
+                <button class="btn-more" data-toggle="detales-verslas">Plačiau ▼</button>
+                <div id="detales-verslas" class="details-content">
+                    <ul>
+                        <li><strong>Finansavimas:</strong> UŽT parama, INVEGA, jaunųjų ūkininkų parama.</li>
+                        <li><strong>Identitetas:</strong> Verslo planų ruošimas ir logotipų projektavimas.</li>
+                        <li><strong>Svetainės:</strong> Profesionalus svetainių kūrimas.</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn-main btn-green">Konsultuotis</a>
+            </div>
+
+            <div class="card" id="ukis">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Ūkis Eggztasy™</h2>
+                <p>Inovatyvūs ir tvarūs sprendimai Jūsų šiuolaikiniam paukštyno ūkiui.</p>
+                <button class="btn-more" data-toggle="detales-agro">Plačiau ▼</button>
+                <div id="detales-agro" class="details-content">
+                    <ul>
+                        <li><strong>MB Vakruška:</strong> Oficialus Quramo mobilių vištidžių distributorius Baltijos
+                            šalyse.</li>
+                        <li><strong>Saugumas:</strong> Mobilumas, apsauga nuo plėšrūnų, kokybė.</li>
+                        <li><strong>Produkcija:</strong> Švieži ekologiški kiaušiniai iš laisvų paukščių.</li>
+                    </ul>
+                </div>
+                <a href="https://eggztasy.lt/" target="_blank" rel="noopener noreferrer"
+                    class="btn-main btn-green">Svetainė</a>
+            </div>
+        </div>
+
+        <section id="gallery"
+            style="border: 1px solid var(--border-color); border-radius: 24px; padding: 3rem 2rem; margin-bottom: 2rem;">
+            <h2 style="text-align: center; margin-bottom: 3.5rem; font-size: 2.5rem;">Galerija</h2>
+
+            <h3 style="text-align: center; color: var(--accent-green); font-size: 1.4rem; margin-bottom: 1.5rem;">Ūkis
+                Eggztasy™
+            </h3>
+            <div class="gallery-grid" id="ukisGrid">
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/vistide-Quramo-Q40.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/vistide-Quramo-Q40.jpg"
+                            alt="Quramo Q40 mobili vištidė iki 50 vištų ekologiškam ūkiui – MB Vakruška, oficialus atstovas Baltijos šalyse"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/LYRzHXWxWmw"
+                        title="MB Vakruška – Quramo mobilių vištidžių pristatymas Eggztasy™ ūkiui"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/vistide-Quramo-Q6.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/vistide-Quramo-Q6.jpg"
+                            alt="Quramo Q6 mobili vištidė iki 860 vištų – profesionalus sprendimas dideliam ūkiui, MB Vakruška"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/mobili-vistide-q6-isore.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/mobili-vistide-q6-isore.jpg"
+                            alt="Quramo Q6 mobilios vištidės išorė žalioje pievoje – talpa iki 860 vištų, ekologiški kiaušiniai"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/mobili-vistide-q6-vidus.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/mobili-vistide-q6-vidus.jpg"
+                            alt="Quramo Q6 vištidės vidus su automatinėmis lizdų sekcijomis ir lesyklomis iki 860 dedeklių"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/vistide-Quramo-Q200.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/vistide-Quramo-Q200.jpg"
+                            alt="Quramo Q200 profesionali mobili vištidė iki 200 vištų – ūkininkams ir verslo pradžiai"
+                            loading="lazy">
+                    </picture>
+                </div>
+            </div>
+
+            <h3
+                style="text-align: center; color: var(--accent-green); font-size: 1.4rem; margin-bottom: 1.5rem; margin-top: 3rem;">
+                Verslas</h3>
+            <div class="gallery-grid" id="verslasGrid">
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/verslo-finansavimas-invega-uzt.webp" type="image/webp">
+                        <img src="https://vakruska.lt/img/verslo-finansavimas-invega-uzt.jpg"
+                            alt="UŽT paramos ir INVEGA finansavimo dokumentų rengimas verslui – MB Vakruška konsultacijos"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/verslo-planu-ruosimas.webp" type="image/webp"><img
+                            src="https://vakruska.lt/img/verslo-planu-ruosimas.jpg"
+                            alt="Verslo plano ruošimas su finansinėmis projekcijomis – pradedantiems ir esamiems verslams"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/logotipu-kurimas-identitetas.webp" type="image/webp">
+                        <img src="https://vakruska.lt/img/logotipu-kurimas-identitetas.jpg"
+                            alt="Logotipų ir firminio stiliaus kūrimas – vizualinio identiteto sprendimai nuo MB Vakruška"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/internetiniu-svetainiu-kurimas.webp" type="image/webp">
+                        <img src="https://vakruska.lt/img/internetiniu-svetainiu-kurimas.jpg"
+                            alt="Greitų ir modernių svetainių kūrimas verslui – responsyvus dizainas ir SEO optimizavimas"
+                            loading="lazy">
+                    </picture>
+                </div>
+            </div>
+
+            <h3
+                style="text-align: center; color: var(--accent-green); font-size: 1.4rem; margin-bottom: 1.5rem; margin-top: 3rem;">
+                Poilsis</h3>
+            <div class="gallery-grid" id="poilsisGrid">
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/sodyba-poilsiui-namelis-kaune.webp" type="image/webp">
+                        <img src="https://vakruska.lt/img/sodyba-poilsiui-namelis-kaune.jpg"
+                            alt="Jaukus medinis poilsio namelis Jiesios sodyboje prie Kauno – nuoma iki 15 svečių"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/sodybos-aplinka-tvenkinys-pavesine.webp"
+                            type="image/webp"><img src="https://vakruska.lt/img/sodybos-aplinka-tvenkinys-pavesine.jpg"
+                            alt="Jiesios sodybos tvenkinys ir pavėsinė Kauno rajone – ideali vieta šventėms ir poilsiui"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/jaukus-vakaras-pavesineje-prie-tvenkinio.webp"
+                            type="image/webp"><img
+                            src="https://vakruska.lt/img/jaukus-vakaras-pavesineje-prie-tvenkinio.jpg"
+                            alt="Vakarinis apšvietimas Jiesios sodybos pavėsinėje prie tvenkinio – romantiška aplinka šventėms"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/poilsis-sodyboje-ziema-apsnigta-pavesine.webp"
+                            type="image/webp"><img
+                            src="https://vakruska.lt/img/poilsis-sodyboje-ziema-apsnigta-pavesine.jpg"
+                            alt="Žieminis poilsis Jiesios sodyboje – apsnigta pavėsinė ir užšalęs tvenkinys Kauno rajone"
+                            loading="lazy">
+                    </picture>
+                </div>
+                <div class="gallery-item">
+                    <picture>
+                        <source srcset="https://vakruska.lt/img/pramogos-visureigiais-bekeleje.webp" type="image/webp">
+                        <img src="https://vakruska.lt/img/pramogos-visureigiais-bekeleje.jpg"
+                            alt="Ekstremalios pramogos visureigiais bekelėje Kauno rajone – nuotykių nuoma iš MB Vakruška"
+                            loading="lazy">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews"
+            style="text-align: center; padding: 4rem 2rem; background: transparent; border: none; margin-bottom: 2rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Jūsų nuomonė mums svarbi</h2>
+            <p
+                style="color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.7;">
+                Atsiliepimai, padėkos ir konstruktyvi kritika – viskas padeda mums augti.
+                Pasidalykite savo patirtimi per kontaktų formą žemiau.
+            </p>
+            <a href="#contact" class="btn-main btn-green" style="display: inline-block; min-width: 220px;">Palikti
+                atsiliepimą</a>
+        </section>
+
+        <section id="contact" class="contact-wrap">
+            <div style="margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Kurkime kartu</h2>
+                <p style="color: var(--text-muted);">Noriu užsisakyti paslaugą, turiu pasiūlymą ar pastebėjimą? Jūsų
+                    nuomonė – mūsų variklis tobulėti.</p>
+            </div>
+
+            <form id="contactForm" action="send.php" method="POST">
+                <!-- CSRF protection -->
+                <input type="hidden" name="csrf_token" value="CSRF_PLACEHOLDER">
+                <!-- Honeypot — bots fill this, humans don't see it -->
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-group"><label for="name">Jūsų vardas</label><input type="text" id="name" name="name"
+                        required autocomplete="name" placeholder="pvz. Jonas Jonaitis"></div>
+                <div class="form-group">
+                    <label for="purpose">Kreipimosi tikslas</label>
+                    <select id="purpose" name="purpose">
+                        <option value="" disabled selected>— Pasirinkite —</option>
+                        <option value="uzklausa">Noriu gauti paslaugos pasiūlymą</option>
+                        <option value="atsiliepimas_teigiamas">Noriu pasidalinti padėka</option>
+                        <option value="atsiliepimas_neigiamas">Turiu kritikos / pastebėjimų</option>
+                    </select>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">* Užpildykite bent vieną
+                    kontaktinį lauką</p>
+                <div class="contact-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group" style="margin-bottom: 0; text-align: center;"><label for="email"
+                            style="margin-bottom: 0.5rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="M22 4L12 13 2 4" />
+                            </svg></label><input type="email" id="email" name="email" autocomplete="email"
+                            placeholder="pavyzdys@pastas.lt"></div>
+                    <div class="form-group" style="margin-bottom: 0; text-align: center;"><label for="phone"
+                            style="margin-bottom: 0.5rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg></label><input type="tel" id="phone" name="phone" pattern="[+]?[0-9\s\-]{6,15}"
+                            title="Įveskite teisingą telefono numerį, pvz. +37060000000" autocomplete="tel"
+                            placeholder="+370 600 00000"></div>
+                </div>
+                <div class="form-group" style="margin-top: 2rem;"><label for="message">Jūsų žinutė</label><textarea
+                        id="message" name="message" rows="5" required
+                        placeholder="Pasidalykite savo mintimis..."></textarea></div>
+                <div
+                    style="display: flex; gap: 12px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; align-items: center; justify-content: center;">
+                    <input type="checkbox" id="consent" name="consent" required
+                        style="width: 20px; height: 20px; padding: 0; flex-shrink: 0; accent-color: #39FF14; background: transparent; border: 2px solid #39FF14; border-radius: 4px; cursor: pointer; -webkit-appearance: none; appearance: none; outline: none; position: relative;"
+                        onclick="this.style.background=this.checked?'#39FF14':'transparent'"><!-- FIX #7: replaced var() with hex in inline onclick --><label
+                        for="consent"
+                        style="display: inline; margin-bottom: 0; cursor: pointer; color: var(--accent-green);">Sutinku,
+                        kad duomenys būtų tvarkomi atsakymo tikslais.</label>
+                </div>
+                <!-- Cloudflare Turnstile CAPTCHA widget -->
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAACghadkBpuyjoQKl" data-theme="dark"
+                    style="display:flex; justify-content:center; margin-bottom:1.5rem;"></div>
+                <button type="submit" class="btn-main btn-green" style="width:100%">SIŲSTI ŽINUTĘ</button>
+            </form>
+
+
+        </section>
+    </div>
+
+    <section style="max-width: 750px; margin: 0 auto 4rem; padding: 0 2rem;">
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 0;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1108!2d23.8012703!3d54.795428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e72cf68d1aaebd%3A0x9d5b59f4a03dadd0!2sTilto%20g.+4%2C%20Stuomenai%2C%2059267%20Prien%C5%B3%20r.+sav.!5e1!3m2!1slt!2slt"
+                width="100%" height="300" style="border:0; display:block; filter: grayscale(0.3) brightness(0.85);"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="MB Vakruška vieta žemėlapyje"></iframe>
+            <a href="https://www.google.com/maps/place/Tilto+g.+4,+Stuomenai,+59267+Prien%C5%B3+r.+sav." target="_blank"
+                rel="noopener noreferrer"
+                style="display: block; padding: 0.8rem; text-align: center; color: var(--accent-green); font-weight: 600; font-size: 0.9rem; text-decoration: none; background: rgba(57, 255, 20, 0.05);">
+                📍 Tilto g. 4, Stuomenai, Prienų r. → Atidaryti Google Maps
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-weight: 800; color: var(--accent-green); margin-bottom: 1rem; font-size: 1.1rem;">MB VAKRUŠKA
+            </p>
+            <div class="social-share" style="margin-bottom: 1.5rem;">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://vakruska.lt" target="_blank"
+                    rel="noopener noreferrer" aria-label="Dalintis Facebook" title="Dalintis Facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    title="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://vakruska.lt" target="_blank"
+                    rel="noopener noreferrer" aria-label="Dalintis LinkedIn" title="Dalintis LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/intent/tweet?url=https://vakruska.lt&text=MB%20Vakru%C5%A1ka%20%E2%80%93%20Poilsis%2C%20Verslas%2C%20%C5%AAkis"
+                    target="_blank" rel="noopener noreferrer" aria-label="Dalintis X" title="Dalintis X">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644z" />
+                    </svg>
+                </a>
+            </div>
+            <p>© <span id="footerYear"></span> Visos teisės saugomos.</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" id="lightboxClose" aria-label="Uždaryti">&times;</span>
+        <div id="lightboxContent"
+            style="display:flex; justify-content:center; align-items:center; width:100%; height:100%;"></div>
+    </div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // Dinamiški metai
+            document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+            // Meniu valdymas
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            function toggleMenu() {
+                const isOpen = navLinks.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+                menuToggle.setAttribute('aria-label', isOpen ? 'Uždaryti meniu' : 'Atidaryti meniu');
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            navLinks.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    // Jei linkas yra dropdown mygtukas (pvz. Galerija)
+                    if (link.hasAttribute('aria-haspopup')) {
+                        e.preventDefault(); // Sustabdome numatytąjį naršyklės šuolį
+                        return; // Leidžiame CSS `hover` būsenai atidaryti submeniu, bet neuždarome viso mobilaus meniu
+                    }
+                    if (navLinks.classList.contains('active')) toggleMenu();
+                });
+            });
+
+            // Detalių atvėrimas / suskleistimas
+            document.querySelectorAll('.btn-more').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var targetId = this.getAttribute('data-toggle');
+                    var el = document.getElementById(targetId);
+                    el.classList.toggle('active');
+                    this.textContent = el.classList.contains('active') ? 'Suskleisti ▲' : 'Plačiau ▼';
+                });
+            });
+
+            // Formos validacija
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                var email = document.getElementById('email').value.trim();
+                var phone = document.getElementById('phone').value.trim();
+                var purpose = document.getElementById('purpose').value;
+                if (email === '' && phone === '') {
+                    e.preventDefault();
+                    alert('Prašome nurodyti bent vieną kontaktą (el. paštą arba telefoną).');
+                    return;
+                }
+                if (!purpose) {
+                    e.preventDefault();
+                    alert('Prašome pasirinkti kreipimosi tikslą.');
+                    return;
+                }
+            });
+
+            // 📸 LIGHTBOX LOGIKA (Išdidinimas)
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightboxContent');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            document.querySelectorAll('.gallery-item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    const img = this.querySelector('img');
+                    const iframe = this.querySelector('iframe');
+
+                    lightboxContent.innerHTML = ''; // Išvalome seną turinį
+
+                    if (img) {
+                        const newImg = document.createElement('img');
+                        // Use high-res version if applicable, otherwise just src
+                        newImg.src = img.src;
+                        newImg.alt = img.alt || '';
+                        lightboxContent.appendChild(newImg);
+                    } else if (iframe) {
+                        const newIframe = document.createElement('iframe');
+                        newIframe.src = iframe.src;
+                        newIframe.setAttribute('allowfullscreen', 'true');
+                        newIframe.title = iframe.title || '';
+                        // Kopijuojame iframe src, kad pradėtų groti arba užsikrautų iš naujo
+                        lightboxContent.appendChild(newIframe);
+                    }
+
+                    lightbox.style.display = 'flex';
+                    // Sustoja fono scroll'as (naudotojas susifokusuoja į nuotrauką)
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+                lightboxContent.innerHTML = ''; // Užmuša iframe/vidutinį langelį, atlaisvina memory
+                document.body.style.overflow = ''; // Atstatomas scroll
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // Uždarymas spaudžiant kur nors fone (juodame overlay)
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === lightboxContent) {
+                    closeLightbox();
+                }
+            });
+
+            // Uždarymas paspaudus "Escape" klavišą klaviatūroje
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                    closeLightbox();
+                }
+            });
+
+
+            // Pomočinė funkcija uždaryti meniu jei jis atviras (kad matytųsi slinkimas)
+            function closeMenuIfOpen() {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }
+
+            // Grįžti į viršų
+            var btt = document.getElementById('backToTop');
+            btt.addEventListener('click', function () {
+                closeMenuIfOpen();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Slinkti žemyn
+            var stb = document.getElementById('scrollToBottom');
+            stb.addEventListener('click', function () {
+                closeMenuIfOpen();
+                window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', function () {
+                var scrollTop = window.scrollY;
+                var scrollHeight = document.documentElement.scrollHeight;
+                var clientHeight = document.documentElement.clientHeight;
+                var atBottom = (scrollTop + clientHeight >= scrollHeight - 100);
+
+                btt.style.display = (scrollTop > 400) ? 'block' : 'none';
+                stb.style.display = (!atBottom && scrollTop < scrollHeight - clientHeight - 100) ? 'block' : 'none';
+            }, { passive: true });
+
+            // 📷 SOCIAL ACTIVATION PHOTO TRIGGER
+            const socialLinks = document.querySelectorAll('.social-share a');
+            const socialBg = document.createElement('div');
+            socialBg.className = 'social-activation-bg';
+            document.body.appendChild(socialBg);
+
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => socialBg.classList.add('active'));
+                link.addEventListener('mouseleave', () => socialBg.classList.remove('active'));
+            });
+        })();
+    </script>
+
+    <!-- STARFIELD — animated green fireflies -->
+    <canvas id="starfield"
+        style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+    <script>
+        (function () {
+            var canvas = document.getElementById('starfield');
+            var ctx = canvas.getContext('2d');
+            var COUNT = 160;
+            var r = [57, 255, 20]; // #39FF14
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize, { passive: true });
+
+            var stars = [];
+            for (var i = 0; i < COUNT; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.3 + 0.2,
+                    alpha: Math.random() * 0.55 + 0.05,
+                    vx: (Math.random() - 0.5) * 0.22,
+                    vy: (Math.random() - 0.5) * 0.22,
+                    tp: Math.random() * Math.PI * 2,   // twinkle phase
+                    ts: Math.random() * 0.007 + 0.002, // twinkle speed
+                    ta: Math.random() * 0.28 + 0.04    // twinkle amplitude
+                });
+            }
+
+            function frame() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (var i = 0; i < stars.length; i++) {
+                    var s = stars[i];
+
+                    // drift
+                    s.x += s.vx;
+                    s.y += s.vy;
+                    // wrap
+                    if (s.x < -3) s.x = canvas.width + 3;
+                    if (s.x > canvas.width + 3) s.x = -3;
+                    if (s.y < -3) s.y = canvas.height + 3;
+                    if (s.y > canvas.height + 3) s.y = -3;
+
+                    // twinkle
+                    s.tp += s.ts;
+                    var a = Math.max(0.02, Math.min(0.88, s.alpha + Math.sin(s.tp) * s.ta));
+
+                    // soft glow halo
+                    var g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 4);
+                    g.addColorStop(0, 'rgba(' + r + ',' + a + ')');
+                    g.addColorStop(0.45, 'rgba(' + r + ',' + (a * 0.35) + ')');
+                    g.addColorStop(1, 'rgba(' + r + ',0)');
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.radius * 4, 0, Math.PI * 2);
+                    ctx.fillStyle = g;
+                    ctx.fill();
+
+                    // bright core dot
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + r + ',' + Math.min(a * 1.7, 0.92) + ')';
+                    ctx.fill();
+                }
+
+                requestAnimationFrame(frame);
+            }
+
+            requestAnimationFrame(frame);
+        })();
+    </script>
+</body>
+
+</html>

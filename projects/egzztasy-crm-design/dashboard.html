@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="lt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Egzztasy CRM Dashboard - Ghost Neon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f5a30a",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#121212",
+                        "glass-dark": "rgba(34, 28, 16, 0.6)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .neon-border {
+            box-shadow: 0 0 10px rgba(245, 163, 10, 0.15), inset 0 0 5px rgba(245, 163, 10, 0.05);
+            border: 1px solid rgba(245, 163, 10, 0.2);
+        }
+        .neon-glow {
+            text-shadow: 0 0 8px rgba(245, 163, 10, 0.4);
+        }
+        .glass-card {
+            background: rgba(45, 38, 25, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 163, 10, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-primary/10 bg-background-light dark:bg-background-dark/80 flex flex-col h-screen">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary neon-glow">psychiatry</span>
+</div>
+<div>
+<h1 class="text-slate-900 dark:text-white font-bold leading-none">Egzztasy</h1>
+<p class="text-xs text-primary/70 font-medium tracking-widest uppercase">Ghost Neon</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-6 space-y-2">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-slate-900 font-semibold shadow-[0_0_15px_rgba(245,163,10,0.4)]">
+<span class="material-symbols-outlined">group</span>
+<span>Leads</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all group">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span>Projects</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">payments</span>
+<span>Financials</span>
+</div>
+<div class="pt-8 pb-2 px-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">System</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary transition-all">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</div>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-3 glass-card rounded-xl p-3 border-primary/20">
+<div class="size-8 rounded-full bg-primary/20 border border-primary/40 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of the administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGB-_xJxuGMqD3ZWFVUn-A3CRqG9PEkM-YzVB60LdNyII5x4pJE54hEciiyuveYvoc0vF4hsn4jJNtf27imz5FZwV7bXbtzGLlEv2ADJ5S_IhTsf7ddYI_mqKb51p7wukcOOKdhbL0bKx5vkwa_rN4_lvpgGuYEv6z_CidxSQgsAmbvK8kz60ZVHYNsDF9YYISX6dy-dwQJmo8o-J25N4nNveVE-PsSufyvkrmisEwjxPjEUkf7mpQoUaUsuoXfGyGCMmIZ_y6mYxK"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold text-slate-200 truncate">Vilius Petraitis</p>
+<p class="text-[10px] text-primary/60 truncate">System Admin</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent">
+<!-- Header -->
+<header class="flex items-center justify-between px-8 py-6 border-b border-primary/5">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Leads Overview</h2>
+<p class="text-slate-500 text-sm">Welcome back, manager. Here's your status report.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="bg-slate-200/50 dark:bg-slate-800/50 border border-primary/10 rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary text-slate-200 w-64" placeholder="Ieškoti klientų..." type="text"/>
+</div>
+<button class="size-10 flex items-center justify-center rounded-xl bg-slate-800/50 border border-primary/10 text-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<div class="absolute top-2 right-2 size-2 bg-primary rounded-full shadow-[0_0_8px_rgba(245,163,10,0.8)]"></div>
+</button>
+</div>
+</header>
+<!-- Key Stats -->
+<div class="px-8 grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="glass-card p-6 rounded-2xl neon-border">
+<div class="flex justify-between items-start mb-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">+5.2%</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Active Leads</p>
+<p class="text-3xl font-bold text-white neon-glow">142</p>
+</div>
+<div class="glass-card p-6 rounded-2xl border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">+2.1%</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Pending Proposals</p>
+<p class="text-3xl font-bold text-white neon-glow">28</p>
+</div>
+<div class="glass-card p-6 rounded-2xl border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div class="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="text-xs font-bold text-rose-500 bg-rose-500/10 px-2 py-1 rounded">-0.8%</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Conversion Rate</p>
+<p class="text-3xl font-bold text-white neon-glow">12.4%</p>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex-1 px-8 mt-10 overflow-x-auto pb-8">
+<div class="flex gap-6 min-h-full">
+<!-- Column 1: Naujas -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-primary shadow-[0_0_8px_rgba(245,163,10,0.6)]"></span>
+<h3 class="font-bold text-slate-200">Naujas</h3>
+<span class="text-xs text-slate-500 bg-slate-800 px-2 py-0.5 rounded-full">4</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">more_horiz</span>
+</div>
+<div class="space-y-4">
+<div class="glass-card p-4 rounded-xl border-primary/10 hover:border-primary/40 transition-colors cursor-grab active:cursor-grabbing group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-primary/80 px-2 py-0.5 bg-primary/10 rounded">Upgrade</span>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors">edit</span>
+</div>
+<h4 class="text-white font-bold mb-1">Arūnas Sabonis</h4>
+<p class="text-xs text-slate-400 line-clamp-2">Poultry System Upgrade - Kauno regionas</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-background-dark bg-slate-700"></div>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-slate-500 font-bold uppercase">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                                    Geg 24
+                                </div>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border-primary/10 hover:border-primary/40 transition-colors cursor-grab group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-blue-400 px-2 py-0.5 bg-blue-400/10 rounded">Naujas Klientas</span>
+</div>
+<h4 class="text-white font-bold mb-1">Jan Kowalski</h4>
+<p class="text-xs text-slate-400 line-clamp-2">Full Automated Poultry Line installation in Bialystok</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border-2 border-background-dark bg-slate-700"></div>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-slate-500 font-bold uppercase">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                                    Geg 25
+                                </div>
+</div>
+</div>
+</div>
+<button class="w-full py-2 border border-dashed border-primary/20 rounded-xl text-primary/60 text-sm font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">add</span> Pridėti kortelę
+                    </button>
+</div>
+<!-- Column 2: Derybos -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-amber-500"></span>
+<h3 class="font-bold text-slate-200">Derybos</h3>
+<span class="text-xs text-slate-500 bg-slate-800 px-2 py-0.5 rounded-full">2</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">more_horiz</span>
+</div>
+<div class="space-y-4">
+<div class="glass-card p-4 rounded-xl border-primary/20 bg-primary/[0.03] neon-border">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-primary px-2 py-0.5 bg-primary/20 rounded">High Priority</span>
+</div>
+<h4 class="text-white font-bold mb-1">Arvydas Macijauskas</h4>
+<p class="text-xs text-slate-400 line-clamp-2">Sistemos optimizavimas ir automatizavimas</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="text-primary font-bold text-xs">€12,500</div>
+<div class="flex items-center gap-1 text-[10px] text-slate-300 font-bold uppercase bg-slate-700/50 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs">chat_bubble</span> 3
+                                </div>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border-primary/10">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400 px-2 py-0.5 bg-slate-800 rounded">Standard</span>
+</div>
+<h4 class="text-white font-bold mb-1">Ewa Nowak</h4>
+<p class="text-xs text-slate-400 line-clamp-2">Consultation for modular cages</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="text-slate-300 font-bold text-xs">€3,200</div>
+<div class="flex items-center gap-1 text-[10px] text-slate-500 font-bold uppercase">
+<span class="material-symbols-outlined text-xs">calendar_today</span> Bir 01
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3: Laukiama -->
+<div class="w-80 flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-slate-500"></span>
+<h3 class="font-bold text-slate-200">Laukiama</h3>
+<span class="text-xs text-slate-500 bg-slate-800 px-2 py-0.5 rounded-full">1</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer">more_horiz</span>
+</div>
+<div class="glass-card p-4 rounded-xl border-primary/10 opacity-70 grayscale-[0.5]">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400 px-2 py-0.5 bg-slate-800 rounded">On Hold</span>
+</div>
+<h4 class="text-white font-bold mb-1">Mantas Kalnietis</h4>
+<p class="text-xs text-slate-400 line-clamp-2">Laukiama patvirtinimo iš banko dėl finansavimo</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="text-slate-400 font-bold text-xs italic">Pending Finance</div>
+<div class="flex items-center gap-1 text-[10px] text-slate-500 font-bold uppercase">
+<span class="material-symbols-outlined text-xs">history</span> 12d.
+                            </div>
+</div>
+</div>
+</div>
+<!-- Column 4: Sėkminga (Generated for full board feel) -->
+<div class="w-80 flex flex-col gap-4 opacity-40">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<h3 class="font-bold text-slate-200">Sėkminga</h3>
+</div>
+</div>
+<div class="border border-dashed border-primary/10 h-32 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-700 text-3xl">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

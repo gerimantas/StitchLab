@@ -1,0 +1,29 @@
+{
+    "projectId": "10740891951776543529",
+    "projectName": "MB Vakruska Redesign",
+    "stitchUrl": "https://stitch.withgoogle.com/",
+    "created": "2026-03-01",
+    "lastUpdated": "2026-03-01",
+    "deviceType": "DESKTOP",
+    "description": "Redesign of vakruska.lt — a Lithuanian LocalBusiness site offering holiday estate rental, business consultations, and Quramo mobile chicken coops",
+    "status": "active",
+    "sourceUrl": "https://vakruska.lt",
+    "screens": [
+        {
+            "screenId": "7d8091c89e284528a10e4d9366a00536",
+            "name": "MB Vakruska Premium Landing Page — Full Page",
+            "prompt": "Full dark terminal aesthetic landing page with all 7 sections: header, hero (Trys keliai į geresnį gyvenimą), Sodyba, Ūkis Eggztasy (Q6/Q40/Q200), Verslo Pagalba, Kontaktai, Footer",
+            "model": "GEMINI_3_PRO",
+            "exportedFile": null,
+            "lastUpdated": "2026-03-01",
+            "screenshotUrl": "https://lh3.googleusercontent.com/aida/AOfcidU_FZtDfcEDJ5qpLcbjMTAxVnmT3AMAu44YD6WCAfljLe3QzPs8_5xddsHTMtPlFq5h-XSliUmHVZKqeSrdqJLXfJqdfyeG7UGx0OO1aXMUQZdTCSy3Tz_aRSEiQLznyEvt7phkd2bdvKEMINLpIUvheqUZwh-QB8LoeGewDbohy9ljP66tvsWRxQmExshaK3p1V3Fcgxvab2GbbEAdHmH8c60M5T6GsPG-8P4Wt6JAMi-L4WySzKT4pt0f"
+        }
+    ],
+    "tags": [
+        "landing-page",
+        "dark-theme",
+        "multiservice",
+        "lithuanian",
+        "business"
+    ]
+}
