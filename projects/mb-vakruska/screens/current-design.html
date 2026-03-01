@@ -1463,6 +1463,26 @@
                 stb.style.display = (!atBottom && scrollTop < scrollHeight - clientHeight - 100) ? 'block' : 'none';
             }, { passive: true });
 
+            // ✨ SCROLL REAVEAL ANIMATIONS
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Once visible, we can stop observing to save resources
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('[data-reveal]').forEach(el => {
+                revealObserver.observe(el);
+            });
+
             // 📷 SOCIAL ACTIVATION PHOTO TRIGGER
             const socialLinks = document.querySelectorAll('.social-share a');
             const socialBg = document.createElement('div');
