@@ -1719,18 +1719,31 @@
             resize();
             window.addEventListener('resize', resize, { passive: true });
 
+            function rnd(min, max) { return Math.random() * (max - min) + min; }
+
             var stars = [];
             for (var i = 0; i < COUNT; i++) {
+                var maxA = rnd(0.22, 0.85);
+                var initState = ['fadein', 'visible', 'fadeout', 'wait'][Math.floor(Math.random() * 4)];
                 stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 1.3 + 0.2,
-                    alpha: Math.random() * 0.55 + 0.05,
-                    vx: (Math.random() - 0.5) * 0.22,
-                    vy: (Math.random() - 0.5) * 0.22,
-                    tp: Math.random() * Math.PI * 2,   // twinkle phase
-                    ts: Math.random() * 0.007 + 0.002, // twinkle speed
-                    ta: Math.random() * 0.28 + 0.04    // twinkle amplitude
+                    x: rnd(0, canvas.width),
+                    y: rnd(0, canvas.height),
+                    radius: rnd(0.2, 1.8),
+                    vx: (Math.random() - 0.5) * 0.18,
+                    vy: (Math.random() - 0.5) * 0.18,
+                    alpha: initState === 'visible' ? maxA : initState === 'fadein' ? rnd(0, maxA) : 0,
+                    maxAlpha: maxA,
+                    glowMax: rnd(2.5, 10.0),
+                    glowCurrent: 1.0,
+                    state: initState,
+                    fadeSpeed: rnd(0.003, 0.014),
+                    visibleTimer: initState === 'visible' ? Math.floor(rnd(0, 120)) : 0,
+                    visibleDuration: Math.floor(rnd(40, 200)),
+                    waitTimer: initState === 'wait' ? Math.floor(rnd(0, 150)) : 0,
+                    waitDuration: Math.floor(rnd(15, 220)),
+                    shimmerPhase: rnd(0, Math.PI * 2),
+                    shimmerSpeed: rnd(0.018, 0.055),
+                    shimmerAmp: rnd(0.015, 0.07)
                 });
             }
 
@@ -1743,30 +1756,67 @@
                     // drift
                     s.x += s.vx;
                     s.y += s.vy;
-                    // wrap
                     if (s.x < -3) s.x = canvas.width + 3;
                     if (s.x > canvas.width + 3) s.x = -3;
                     if (s.y < -3) s.y = canvas.height + 3;
                     if (s.y > canvas.height + 3) s.y = -3;
 
-                    // twinkle
-                    s.tp += s.ts;
-                    var a = Math.max(0.02, Math.min(0.88, s.alpha + Math.sin(s.tp) * s.ta));
+                    if (s.state === 'fadein') {
+                        s.alpha += s.fadeSpeed;
+                        s.glowCurrent = (s.alpha / s.maxAlpha) * s.glowMax;
+                        if (s.alpha >= s.maxAlpha) {
+                            s.alpha = s.maxAlpha;
+                            s.glowCurrent = s.glowMax;
+                            s.state = 'visible';
+                            s.visibleTimer = 0;
+                            s.visibleDuration = Math.floor(rnd(40, 200));
+                        }
+                    } else if (s.state === 'visible') {
+                        s.shimmerPhase += s.shimmerSpeed;
+                        s.alpha = Math.max(0, Math.min(s.maxAlpha,
+                            s.maxAlpha + Math.sin(s.shimmerPhase) * s.shimmerAmp));
+                        s.glowCurrent = s.glowMax + Math.sin(s.shimmerPhase * 0.7) * (s.glowMax * 0.08);
+                        s.visibleTimer++;
+                        if (s.visibleTimer >= s.visibleDuration) {
+                            s.state = 'fadeout';
+                        }
+                    } else if (s.state === 'fadeout') {
+                        s.alpha -= s.fadeSpeed;
+                        s.glowCurrent = Math.max(1.0, (s.alpha / s.maxAlpha) * s.glowMax);
+                        if (s.alpha <= 0) {
+                            s.alpha = 0;
+                            s.glowCurrent = 1.0;
+                            s.state = 'wait';
+                            s.waitTimer = 0;
+                            s.waitDuration = Math.floor(rnd(15, 220));
+                            s.maxAlpha = rnd(0.22, 0.85);
+                            s.glowMax = rnd(2.5, 10.0);
+                            s.fadeSpeed = rnd(0.003, 0.014);
+                        }
+                    } else if (s.state === 'wait') {
+                        s.waitTimer++;
+                        if (s.waitTimer >= s.waitDuration) {
+                            s.state = 'fadein';
+                        }
+                    }
+
+                    if (s.alpha < 0.01) continue;
 
                     // soft glow halo
-                    var g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 4);
-                    g.addColorStop(0, 'rgba(' + r + ',' + a + ')');
-                    g.addColorStop(0.45, 'rgba(' + r + ',' + (a * 0.35) + ')');
-                    g.addColorStop(1, 'rgba(' + r + ',0)');
+                    var haloR = s.radius * s.glowCurrent;
+                    var g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, haloR);
+                    g.addColorStop(0,    'rgba(' + r + ',' + s.alpha + ')');
+                    g.addColorStop(0.4,  'rgba(' + r + ',' + (s.alpha * 0.3) + ')');
+                    g.addColorStop(1,    'rgba(' + r + ',0)');
                     ctx.beginPath();
-                    ctx.arc(s.x, s.y, s.radius * 4, 0, Math.PI * 2);
+                    ctx.arc(s.x, s.y, haloR, 0, Math.PI * 2);
                     ctx.fillStyle = g;
                     ctx.fill();
 
                     // bright core dot
                     ctx.beginPath();
                     ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(' + r + ',' + Math.min(a * 1.7, 0.92) + ')';
+                    ctx.fillStyle = 'rgba(' + r + ',' + Math.min(s.alpha * 1.8, 0.95) + ')';
                     ctx.fill();
                 }
 
