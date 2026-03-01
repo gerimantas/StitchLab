@@ -858,10 +858,6 @@
         }
 
         .custom-options {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            right: 0;
             background: #1a1d21;
             border: 1px solid var(--accent-green);
             border-radius: 14px;
@@ -871,13 +867,16 @@
             visibility: hidden;
             z-index: 100;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
         }
 
         .custom-select-wrapper.open .custom-options {
-            max-height: 300px;
+            max-height: 400px;
             opacity: 1;
             visibility: visible;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
 
         .custom-option {
