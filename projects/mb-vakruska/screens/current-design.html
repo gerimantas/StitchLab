@@ -145,16 +145,20 @@
         /* NAVIGACIJA SU ANIMUOTA LINIJA IR MOBILIU VALDYMU */
         header {
             padding: 1.4rem 0;
-            border-bottom: 1px solid transparent;
-            border-image: linear-gradient(90deg, transparent 0%, rgba(57, 255, 20, 0.6) 30%, rgba(57, 255, 20, 0.9) 50%, rgba(57, 255, 20, 0.6) 70%, transparent 100%) 1;
-            -webkit-backdrop-filter: blur(20px);
-            /* FIX #4: Firefox/older browsers */
+            background: rgba(8, 10, 11, 0.0);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 10001;
-            background: rgba(8, 10, 11, 0.0);
+            transition: background 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            background: rgba(8, 10, 11, 0.7);
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav {
@@ -328,9 +332,8 @@
         .hero {
             text-align: center;
             padding: 10rem 2rem 3.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
             margin-bottom: 2rem;
+            position: relative;
         }
 
         .hero h1 {
@@ -482,6 +485,57 @@
             border-color: #39FF14;
         }
 
+        /* Autofill Fix */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #fff;
+            -webkit-box-shadow: 0 0 0px 1000px #1a1d21 inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Validation UI */
+        .form-group {
+            position: relative;
+        }
+
+        .error-msg {
+            color: #ff453a;
+            font-size: 0.75rem;
+            margin-top: 0.4rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        input.invalid {
+            border-color: rgba(255, 69, 58, 0.5) !important;
+            background: rgba(255, 69, 58, 0.03) !important;
+        }
+
+        input.invalid+.error-msg {
+            display: block;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.3s ease-in-out 0.2s 2;
+        }
+
 
 
         /* GALERIJA SU SEO APRAŠYMAIS – MASONRY / GRID */
@@ -499,10 +553,10 @@
             box-sizing: border-box;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
             position: relative;
             cursor: pointer;
             background: #111;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .gallery-item img {
@@ -1103,33 +1157,46 @@
                 <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">* Užpildykite bent vieną
                     kontaktinį lauką</p>
                 <div class="contact-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <div class="form-group" style="margin-bottom: 0; text-align: center;"><label for="email"
-                            style="margin-bottom: 0.5rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                                stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="form-group" style="margin-bottom: 0; text-align: center;">
+                        <label for="email" style="margin-bottom: 0.5rem;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#39FF14"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="4" width="20" height="16" rx="2" />
                                 <path d="M22 4L12 13 2 4" />
-                            </svg></label><input type="email" id="email" name="email" autocomplete="email"
-                            placeholder="pavyzdys@pastas.lt"></div>
-                    <div class="form-group" style="margin-bottom: 0; text-align: center;"><label for="phone"
-                            style="margin-bottom: 0.5rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                                stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </svg>
+                        </label>
+                        <input type="email" id="email" name="email" autocomplete="email"
+                            placeholder="pavyzdys@pastas.lt">
+                        <div class="error-msg">Neteisingas el. pašto formatas</div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0; text-align: center;">
+                        <label for="phone" style="margin-bottom: 0.5rem;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#39FF14"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                            </svg></label><input type="tel" id="phone" name="phone" pattern="[+]?[0-9\s\-]{6,15}"
+                            </svg>
+                        </label>
+                        <input type="tel" id="phone" name="phone" pattern="[+]?[0-9\s\-]{6,15}"
                             title="Įveskite teisingą telefono numerį, pvz. +37060000000" autocomplete="tel"
-                            placeholder="+370 600 00000"></div>
+                            placeholder="+370 600 00000">
+                        <div class="error-msg">Neteisingas telefono numeris</div>
+                    </div>
                 </div>
                 <div class="form-group" style="margin-top: 2rem;"><label for="message">Jūsų žinutė</label><textarea
                         id="message" name="message" rows="5" required
                         placeholder="Pasidalykite savo mintimis..."></textarea></div>
-                <div
-                    style="display: flex; gap: 12px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; align-items: center; justify-content: center;">
+                <div style="display: flex; gap: 12px; font-size: 0.95rem; color: #fff; margin-bottom: 2rem; align-items: center; justify-content: center; background: rgba(57, 255, 20, 0.03); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); transition: all 0.3s ease-in-out;"
+                    onmouseenter="this.style.borderColor='rgba(57,255,20,0.5)'; this.style.background='rgba(57,255,20,0.06)'"
+                    onmouseleave="this.style.borderColor='rgba(57,255,20,0.15)'; this.style.background='rgba(57,255,20,0.03)'">
                     <input type="checkbox" id="consent" name="consent" required
-                        style="width: 20px; height: 20px; padding: 0; flex-shrink: 0; accent-color: #39FF14; background: transparent; border: 2px solid #39FF14; border-radius: 4px; cursor: pointer; -webkit-appearance: none; appearance: none; outline: none; position: relative;"
-                        onclick="this.style.background=this.checked?'#39FF14':'transparent'"><!-- FIX #7: replaced var() with hex in inline onclick --><label
-                        for="consent"
-                        style="display: inline; margin-bottom: 0; cursor: pointer; color: var(--accent-green);">Sutinku,
-                        kad duomenys būtų tvarkomi atsakymo tikslais.</label>
+                        style="width: 24px; height: 24px; cursor: pointer; accent-color: var(--accent-green);">
+                    <label for="consent"
+                        style="display: inline; margin-bottom: 0; cursor: pointer; color: var(--text-muted); font-weight: 500;">
+                        Sutinku su <a href="privacy.php" target="_blank"
+                            style="color: var(--accent-green); text-decoration: underline; text-underline-offset: 4px;">privatumo
+                            politika</a>
+                    </label>
                 </div>
                 <!-- Cloudflare Turnstile CAPTCHA widget -->
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAACghadkBpuyjoQKl" data-theme="dark"
@@ -1240,20 +1307,72 @@
                 });
             });
 
-            // Formos validacija
-            document.getElementById('contactForm').addEventListener('submit', function (e) {
-                var email = document.getElementById('email').value.trim();
-                var phone = document.getElementById('phone').value.trim();
-                var purpose = document.getElementById('purpose').value;
-                if (email === '' && phone === '') {
-                    e.preventDefault();
-                    alert('Prašome nurodyti bent vieną kontaktą (el. paštą arba telefoną).');
-                    return;
+            // Header Scroll Effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
+            }, { passive: true });
+
+            // Form Validation Logic
+            const contactForm = document.getElementById('contactForm');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+
+            function validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function validatePhone(phone) {
+                // Allows +, spaces, dashes, and requires at least 7 digits
+                const digits = phone.replace(/\D/g, '');
+                return digits.length >= 7 && digits.length <= 15;
+            }
+
+            function clearErrors() {
+                document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+                contactForm.classList.remove('shake');
+            }
+
+            contactForm.addEventListener('submit', function (e) {
+                clearErrors();
+                let hasError = false;
+
+                const emailValue = emailInput.value.trim();
+                const phoneValue = phoneInput.value.trim();
+                const purpose = document.getElementById('purpose').value;
+
+                // Logical Guard: At least one contact method
+                if (!emailValue && !phoneValue) {
+                    hasError = true;
+                    emailInput.classList.add('invalid');
+                    phoneInput.classList.add('invalid');
+                    alert('Prašome užpildyti bent vieną kontaktinį lauką (el. paštą arba telefoną).');
+                } else {
+                    // Format checks if provided
+                    if (emailValue && !validateEmail(emailValue)) {
+                        hasError = true;
+                        emailInput.classList.add('invalid');
+                    }
+                    if (phoneValue && !validatePhone(phoneValue)) {
+                        hasError = true;
+                        phoneInput.classList.add('invalid');
+                    }
+                }
+
                 if (!purpose) {
-                    e.preventDefault();
+                    hasError = true;
+                    document.getElementById('purpose').classList.add('invalid');
                     alert('Prašome pasirinkti kreipimosi tikslą.');
-                    return;
+                }
+
+                if (hasError) {
+                    e.preventDefault();
+                    contactForm.classList.add('shake');
+                    setTimeout(() => contactForm.classList.remove('shake'), 600);
                 }
             });
 
